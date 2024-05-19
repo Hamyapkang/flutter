@@ -287,6 +287,7 @@ class _ContactF1State extends State<ContactF1> {
             label: '',
           ),
           BottomNavigationBarItem(
+            key: Key("settingBt"),
             icon: Icon(Icons.settings),
             label: '',
           ),

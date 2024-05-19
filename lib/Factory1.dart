@@ -152,6 +152,7 @@ class _Factory1State extends State<Factory1> {
                   ),
                   GestureDetector(
                     child: Padding(
+                      key: Key("Factory2"),
                       padding: EdgeInsets.fromLTRB(12, 0, 12, 0),
                       child: Container(
                         width:currentWidth*0.45,

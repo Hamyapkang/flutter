@@ -33,7 +33,13 @@ class _Factory2State extends State<Factory2> {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Thresholdvalue(),
+                    )
+                );
+              },
               icon: Icon(Icons.settings),
             ),
           ],

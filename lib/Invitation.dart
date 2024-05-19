@@ -63,6 +63,7 @@ class Invitation extends StatelessWidget {
                     fontSize: currentWidth*0.04
                   ),),
                   TextField(
+                    key: Key("ownerName"),
                     controller: ownerNameController,
                     decoration: InputDecoration(
                       hintText: 'Type here',
@@ -85,6 +86,7 @@ class Invitation extends StatelessWidget {
                       fontSize: currentWidth*0.04
                   ),),
                   IntlPhoneField(
+                    key: Key("phoneNo"),
                     controller: ownerPhoneNumberController,
                     flagsButtonPadding: const EdgeInsets.all(8),
                     dropdownIconPosition: IconPosition.trailing,
@@ -107,6 +109,7 @@ class Invitation extends StatelessWidget {
                       ); // Close the Invitation screen
                     },
                     child: Container(
+                      key:Key("submit"),
                       margin: EdgeInsets.all(20),
                       padding: EdgeInsets.all(10),
                       width: double.infinity,

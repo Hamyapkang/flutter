@@ -76,6 +76,7 @@ class _ActivationCodeState extends State<ActivationCode> {
                                 height: 40,
                               ),
                               TextField(
+                                key: Key("otp"),
                                 textAlign: TextAlign.center,
                                 maxLength: 6,
                                 showCursor: true,
@@ -115,6 +116,7 @@ class _ActivationCodeState extends State<ActivationCode> {
                               ),
                               Container(
                                 child: TextButton(
+
                                     onPressed: (){
                                       Navigator.of(context).push(
                                           MaterialPageRoute(

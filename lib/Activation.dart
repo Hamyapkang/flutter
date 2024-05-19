@@ -76,6 +76,7 @@ class _ActivationState extends State<Activation> {
                                 height: 40,
                               ),
                               IntlPhoneField(
+                                key: Key("phoneNumber"),
                                 flagsButtonPadding: const EdgeInsets.all(8),
                                 dropdownIconPosition: IconPosition.trailing,
                                 decoration: const InputDecoration(
@@ -110,6 +111,7 @@ class _ActivationState extends State<Activation> {
                                 ],
                               ),
                               Container(
+                                key: Key("activateButton"),
                                 margin: EdgeInsets.fromLTRB(20, 20, 0, 0),
                                 child: TextButton(
                                   onPressed: isChecked
