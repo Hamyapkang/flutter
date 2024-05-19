@@ -42,5 +42,12 @@ workflows:
       - build/**/outputs/**/mapping.txt
       - flutter_drive.log
 
-          
+    publishing:
+        email:
+          recipients:
+            - hamyapkang@gmail.com
+            - kengyap@upm.edu.my
+          notify:
+            success: true
+            failure: false
           
