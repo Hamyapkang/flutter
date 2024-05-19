@@ -36,17 +36,13 @@ void main() {
       await Future.delayed(Duration(seconds: 4));
 
       await tester.enterText(otp,"215248");
+      await tester.pumpAndSettle();
+      await Future.delayed(Duration(seconds: 2));
       await tester.tap(activateButton);
       await tester.pumpAndSettle();
       await Future.delayed(Duration(seconds: 2));
 
-      await tester.tap(person);
-      await tester.pumpAndSettle();
-      await Future.delayed(Duration(seconds: 2));
 
-      Navigator.of(tester.element(find.byType(Scaffold))).pop();
-      await tester.pumpAndSettle();
-      await Future.delayed(Duration(seconds: 2));
 
       await tester.tap(factory2);
       await tester.pumpAndSettle();
@@ -60,7 +56,9 @@ void main() {
       await Future.delayed(Duration(seconds: 5));
 
       await tester.enterText(owner, "4896Ham");
+      await tester.pumpAndSettle();
       await Future.delayed(Duration(seconds: 3));
+      await tester.pumpAndSettle();
       await tester.enterText(phoneNo, "01233252144");
       await Future.delayed(Duration(seconds: 3));
       await tester.tap(submit);
@@ -74,6 +72,7 @@ void main() {
       await tester.enterText(steamPressure, "80");
       await Future.delayed(Duration(seconds: 5));
       await tester.tap(edit);
+      await tester.pumpAndSettle();
       await Future.delayed(Duration(seconds: 5));
 
 

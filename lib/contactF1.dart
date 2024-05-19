@@ -47,139 +47,178 @@ class _ContactF1State extends State<ContactF1> {
         height: double.infinity,
         child: Padding(
           padding: EdgeInsets.all(15.0),
-          child: Column(
-            children: [
-              Container(
-                height: currentHeight*0.58,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey[300],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  height: currentHeight*0.58,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[300],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Container(
+                                padding: EdgeInsets.all(15),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      context.watch<UserProvider>().nameList[index],
+                                      style: TextStyle(
+                                        fontSize: currentWidth*0.06,
+                                      ),
+                                    ),
+                                    Text(
+                                      context.watch<UserProvider>().phoneNumList[index],
+                                      style: TextStyle(
+                                        fontSize: currentWidth*0.06,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white,
+                                ),
+                              ),
+                            );
+                          },
+                          itemCount: context.watch<UserProvider>().nameList.length,
+                        ),
+                      ),
+                      GestureDetector(
+                        child: Container(
+                          margin: EdgeInsets.all(20),
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.8),
+                                spreadRadius: 2,
+                                blurRadius: 3,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                            color: Colors.purple[50],
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => Invitation(),
+                                  ),
+                              );
+                            },
+                            child: Text('+',
+                            style: TextStyle(
+                              fontSize: currentWidth*0.05
+                            ),),
+                          ),
+                        ),
+                        onTap: (){
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => Invitation(),
+                            ),
+                          );
+            
+                        },
+                      ),
+                      SizedBox(height: 20),
+                    ],
+                  ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: Container(
-                              padding: EdgeInsets.all(15),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    context.watch<UserProvider>().nameList[index],
-                                    style: TextStyle(
-                                      fontSize: currentWidth*0.06,
-                                    ),
-                                  ),
-                                  Text(
-                                    context.watch<UserProvider>().phoneNumList[index],
-                                    style: TextStyle(
-                                      fontSize: currentWidth*0.06,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.white,
-                              ),
+                SizedBox(
+                  height: currentHeight*0.02,
+                ),
+                Container(
+                  height: currentHeight*0.145,
+                  color: Colors.grey[400],
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      GestureDetector(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                          child: Container(
+                            width:currentWidth*0.45,
+                            decoration: BoxDecoration(
+                              boxShadow:[BoxShadow(
+                                  color: Colors.lightBlue.withOpacity(0.8),
+                                  spreadRadius: 5,
+                                  blurRadius: 8,
+                                  offset: Offset(0, 3)
+                              )
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(Icons.factory,size: currentWidth*0.08,),
+                                SizedBox(
+                                  height: currentHeight*0.025,
+                                ),
+                                Text('Factory 1',style: TextStyle(
+                                  fontSize: currentWidth*0.05,
+                                ),)
+                              ],
+                            ),
+                          ),
+                        ),
+            
+                      ),
+                      GestureDetector(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(12, 0, 12, 0),
+                          child: Container(
+                            width:currentWidth*0.45,
+                            decoration: BoxDecoration(
+                              boxShadow:[BoxShadow(
+                                  color: Colors.grey.withOpacity(0.8),
+                                  spreadRadius: 2,
+                                  blurRadius: 3,
+                                  offset: Offset(0, 3)
+                              )
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(Icons.factory,size: currentWidth*0.08,),
+                                SizedBox(
+                                  height: currentHeight*0.025,
+                                ),
+                                Text('Factory 2',style: TextStyle(
+                                  fontSize: currentWidth*0.05,
+                                ),)
+                              ],
+                            ),
+                          ),
+                        ),
+                        onTap: (){
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => Factory2(),
                             ),
                           );
                         },
-                        itemCount: context.watch<UserProvider>().nameList.length,
                       ),
-                    ),
-                    GestureDetector(
-                      child: Container(
-                        margin: EdgeInsets.all(20),
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.8),
-                              spreadRadius: 2,
-                              blurRadius: 3,
-                              offset: Offset(0, 3),
-                            ),
-                          ],
-                          color: Colors.purple[50],
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => Invitation(),
-                                ),
-                            );
-                          },
-                          child: Text('+',
-                          style: TextStyle(
-                            fontSize: currentWidth*0.05
-                          ),),
-                        ),
-                      ),
-                      onTap: (){
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => Invitation(),
-                          ),
-                        );
-
-                      },
-                    ),
-                    SizedBox(height: 20),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: currentHeight*0.02,
-              ),
-              Container(
-                height: currentHeight*0.145,
-                color: Colors.grey[400],
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    GestureDetector(
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(12, 0, 12, 0),
-                        child: Container(
-                          width:currentWidth*0.45,
-                          decoration: BoxDecoration(
-                            boxShadow:[BoxShadow(
-                                color: Colors.lightBlue.withOpacity(0.8),
-                                spreadRadius: 5,
-                                blurRadius: 8,
-                                offset: Offset(0, 3)
-                            )
-                            ],
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Icon(Icons.factory,size: currentWidth*0.08,),
-                              SizedBox(
-                                height: currentHeight*0.025,
-                              ),
-                              Text('Factory 1',style: TextStyle(
-                                fontSize: currentWidth*0.05,
-                              ),)
-                            ],
-                          ),
-                        ),
-                      ),
-
-                    ),
-                    GestureDetector(
-                      child: Padding(
+                      Padding(
                         padding: EdgeInsets.fromLTRB(12, 0, 12, 0),
                         child: Container(
                           width:currentWidth*0.45,
@@ -202,55 +241,18 @@ class _ContactF1State extends State<ContactF1> {
                               SizedBox(
                                 height: currentHeight*0.025,
                               ),
-                              Text('Factory 2',style: TextStyle(
+                              Text('Factory 3',style: TextStyle(
                                 fontSize: currentWidth*0.05,
                               ),)
                             ],
                           ),
                         ),
-                      ),
-                      onTap: (){
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => Factory2(),
-                          ),
-                        );
-                      },
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(12, 0, 12, 0),
-                      child: Container(
-                        width:currentWidth*0.45,
-                        decoration: BoxDecoration(
-                          boxShadow:[BoxShadow(
-                              color: Colors.grey.withOpacity(0.8),
-                              spreadRadius: 2,
-                              blurRadius: 3,
-                              offset: Offset(0, 3)
-                          )
-                          ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(7),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(Icons.factory,size: currentWidth*0.08,),
-                            SizedBox(
-                              height: currentHeight*0.025,
-                            ),
-                            Text('Factory 3',style: TextStyle(
-                              fontSize: currentWidth*0.05,
-                            ),)
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

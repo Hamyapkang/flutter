@@ -47,10 +47,10 @@ class _ThresholdvalueState extends State<Thresholdvalue> {
           ),
         ],
       ),
-      body:Container(
-        color: Colors.grey[400],
-        height: double.infinity,
-        child: SingleChildScrollView(
+      body:SingleChildScrollView(
+        child: Container(
+          color: Colors.grey[400],
+
           child: Column(
             children: [
               Padding(
