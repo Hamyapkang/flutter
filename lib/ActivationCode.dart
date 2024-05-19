@@ -76,6 +76,7 @@ class _ActivationCodeState extends State<ActivationCode> {
                                 height: 40,
                               ),
                               TextField(
+                                key:Key("otp"),
                                 textAlign: TextAlign.center,
                                 maxLength: 6,
                                 showCursor: true,

@@ -76,6 +76,7 @@ class _ActivationState extends State<Activation> {
                                 height: 40,
                               ),
                               IntlPhoneField(
+                                key:Key("phoneNumber"),
                                 flagsButtonPadding: const EdgeInsets.all(8),
                                 dropdownIconPosition: IconPosition.trailing,
                                 decoration: const InputDecoration(

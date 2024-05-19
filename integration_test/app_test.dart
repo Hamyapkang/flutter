@@ -12,7 +12,7 @@ void main() {
       
       final phoneNum = find.byKey(Key("phoneNumber"));
       final agree = find.byType(Checkbox);
-      final activate = find.byKey(Key("activateButton"));
+      final activate = find.byType(TextButton);
       final otp = find.byKey(Key("otp"));
       final activateButton = find.byType(TextButton);
       final person = find.byIcon(Icons.person);
@@ -26,14 +26,14 @@ void main() {
       final steamPressure = find.byKey(Key("steamPressure"));
       final buttonSetting = find.byKey(Key("settingBt"));
 
-
+      await Future.delayed(Duration(seconds: 3));
       await tester.enterText(phoneNum, "01234567891");
       await tester.tap(agree);
       await tester.pumpAndSettle();
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(Duration(seconds: 3));
       await tester.tap(activate);
       await tester.pumpAndSettle();
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(Duration(seconds: 4));
 
       await tester.enterText(otp,"215248");
       await tester.tap(activateButton);
