@@ -20,7 +20,7 @@ workflows:
           flutter build apk --debug
       - name: Create debug and test APK
         script: |
-          set-ex
+          set -ex
           cd android
           ./gradlew app:assembleAndroidTest
           ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/integration_test/app_test.dart"
